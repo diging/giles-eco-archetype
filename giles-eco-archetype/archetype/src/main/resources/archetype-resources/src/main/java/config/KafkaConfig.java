@@ -18,13 +18,13 @@ import org.springframework.kafka.config.ConcurrentKafkaListenerContainerFactory;
 import org.springframework.kafka.core.ConsumerFactory;
 import org.springframework.kafka.core.DefaultKafkaConsumerFactory;
 
-import ${package}.core.kafka.EmbeddedImageExtractionRequestReceiver;
+import ${package}.core.kafka.RequestReceiver;
 import ${groupId}.gilesecosystem.requests.kafka.KafkaConfig;
 import ${groupId}.gilesecosystem.util.properties.IPropertiesManager;
 
 @Configuration
 @EnableKafka
-public class KafkaConfig implements KafkaConfig {
+public class ComponentKafkaConfig implements KafkaConfig {
     
     @Autowired
     private IPropertiesManager propertiesManager;
@@ -62,8 +62,8 @@ public class KafkaConfig implements KafkaConfig {
     }
     
     @Bean
-    public EmbeddedImageExtractionRequestReceiver requestReceiver() {
-        return new EmbeddedImageExtractionRequestReceiver();
+    public RequestReceiver requestReceiver() {
+        return new RequestReceiver();
     }
 
     @Override
